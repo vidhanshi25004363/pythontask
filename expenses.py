@@ -2,15 +2,15 @@ class ExpensesSplitter:
     def __init__(self):
         self.expenses = {}
 
-    def add_expense(self,payer,amount,participants):
-        share = amount / len(participants)
-        if payer not in self.expenses:
-            self.expenses[payer] += 0
-            self.expenses[payer] += amount
+    def add_expense(self,person,amount,ExpenseManager):
+        share = amount / len(ExpenseManager)
+        if person not in self.expenses:
+            self.expenses[person] += 0
+            self.expenses[person] += amount
             
             
-            for person in participants:
-                if person != payer:
+            for person in ExpenseManager:
+                if person != person:
                     if person not in self.expenses:
                         self.expenses[person] = 0
                         self.expenses[person] -= share
