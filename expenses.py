@@ -1,24 +1,27 @@
-class ExpensesSplitter:
-    def __init__(self):
-        self.expenses = {}
+ print("\nExpense Splitter Menu")
+            print("1. Add Expense")
+            print("2. Show Balances")
+            print("3. Settle Expenses")
+            print("4. Reset Balances")
+            print("5. Exit")
 
-    def add_expense(self,person,amount,ExpenseManager):
-        share = amount / len(ExpenseManager)
-        if person not in self.expenses:
-            self.expenses[person] += 0
-            self.expenses[person] += amount
-            
-            
-            for person in ExpenseManager:
-                if person != person:
-                    if person not in self.expenses:
-                        self.expenses[person] = 0
-                        self.expenses[person] -= share
-                        
-                        def show_balances(self):
-                            print("\nCurrent Balances")
-                            
-                            for person,balance in self.expenses.items():
-                                print(f"{person}: {'Owes' if balance < 0 else 'GETS'} {abs(balance):,.2f}")
-                            
-                            
+            choice = input("Choose an option: ")
+
+            if choice == '1':
+                person = input("Enter the name of the person who paid: ")
+                amount = float(input("Enter the amount paid: "))
+                participants = input("Enter the names of participants (comma separated): ").split(',')
+                self.add_expense(person.strip(), amount, [p.strip() for p in participants])
+                print("Expense added successfully")
+            elif choice == '2':
+                self.show_balances()
+            elif choice == '3':
+                self.settle_expense()
+            elif choice == '4':
+                self.reset_balances()
+            elif choice == '5':
+                print("Exiting Expense Splitter.")
+                break
+            else:
+                print("Invalid choice. Please try again.")
+
